@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/customer")
+@RequestMapping(path = "/api/v1/customers")
 @RequiredArgsConstructor
 public class CustomerController {
 
-    private CustomerService customerService;
+    private final CustomerService customerService;
 
     @PostMapping("/")
     public ResponseEntity<String> createCustomer(@RequestBody @Valid CustomerRequest request) {
@@ -31,7 +31,7 @@ public class CustomerController {
     public ResponseEntity<Boolean> existById(@PathVariable ("customer-id") String customerId) {
         return ResponseEntity.ok(customerService.existById(customerId));
     }
-    @GetMapping("/customer/{customer-id}")
+    @GetMapping("/{customer-id}")
     public ResponseEntity<CustomerResponse> findById(@PathVariable ("customer-id") String customerId) {
         return ResponseEntity.ok(customerService.findById(customerId));
     }

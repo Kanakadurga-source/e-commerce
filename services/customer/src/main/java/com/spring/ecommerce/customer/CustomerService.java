@@ -1,7 +1,7 @@
 package com.spring.ecommerce.customer;
 
 import com.spring.ecommerce.exception.CustomerNotFoundException;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import static java.lang.String.format;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class CustomerService {
     private final CustomerRepository repository;
     private final CustomerMapper mapper;

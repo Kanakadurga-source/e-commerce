@@ -2,6 +2,7 @@ package com.spring.ecommerce.product;
 
 import com.spring.ecommerce.category.Category;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -31,5 +32,15 @@ public class ProductMapper {
                 product.getCategory().getDescription()
 
         );
+    }
+
+    public ProductPurchaseResponse toProductPurchaseResponse(Product product, @NotNull(message = "Quantity is mandatory") double quantity) {
+    return new ProductPurchaseResponse(
+            product.getId(),
+            product.getName(),
+            product.getDescription(),
+            product.getPrice(),
+            quantity
+    );
     }
 }

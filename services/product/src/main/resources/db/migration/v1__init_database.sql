@@ -1,18 +1,23 @@
-CREATE TABLE IF NOT EXISTS category (
-    id INTEGER NOT NULL PRIMARY KEY,
-    description VARCHAR(225),
-    name VARCHAR(225)
-    );
+create table if not exists category
+(
+    id          integer not null
+        primary key,
+    description varchar(255),
+    name        varchar(255)
+);
 
-CREATE TABLE IF NOT EXISTS product (
-    id INTEGER NOT NULL PRIMARY KEY,
-    description VARCHAR(225),
-    name VARCHAR(225),
-    available_quantity DOUBLE PRECISION NOT NULL,
-    price NUMERIC(38,2),
-    category_id INTEGER,
-    CONSTRAINT fk_category FOREIGN KEY (category_id) REFERENCES category(id)
-    );
+create table if not exists product
+(
+    id                 integer          not null
+        primary key,
+    available_quantity double precision not null,
+    description        varchar(255),
+    name               varchar(255),
+    price              numeric(38, 2),
+    category_id        integer
+        constraint fk1mtsbur82frn64de7balymq9s
+            references category
+);
 
-CREATE SEQUENCE IF NOT EXISTS category_seq INCREMENT BY 50;
-CREATE SEQUENCE IF NOT EXISTS product_seq INCREMENT BY 50;
+create sequence if not exists category_seq increment by 50;
+create sequence if not exists product_seq increment by 50;

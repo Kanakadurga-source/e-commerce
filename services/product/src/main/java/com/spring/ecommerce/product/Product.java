@@ -1,7 +1,6 @@
 package com.spring.ecommerce.product;
 
 import com.spring.ecommerce.category.Category;
-import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 import lombok.*;
 
